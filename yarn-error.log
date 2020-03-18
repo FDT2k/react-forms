@@ -1,0 +1,80 @@
+Arguments: 
+  /home/fabien/.nvm/versions/node/v10.15.3/bin/node /usr/bin/yarn add @babel/core @babel/cli jest jest-coverage-badges--dev
+
+PATH: 
+  /home/fabien/.rbenv/shims:/home/fabien/.deno/bin:/home/fabien/.local/bin:/home/fabien/.rbenv/versions/2.7.0/bin:/home/fabien/.rbenv/bin:/home/fabien/.rbenv/plugins/ruby-build/bin:/home/fabien/.yarn/bin:/home/fabien/.config/yarn/global/node_modules/.bin:/home/fabien/.config/qtile/bin:/opt:/home/fabien/.nvm/versions/node/v10.15.3/bin:/home/fabien/.config/composer/vendor/bin:/home/fabien/bin:/usr/local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin
+
+Yarn version: 
+  1.22.2
+
+Node version: 
+  10.15.3
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: http://192.168.64.135:4873/jest-coverage-badges--dev: no such package available
+      at Request.params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:66987:18)
+      at Request.self.callback (/usr/lib/node_modules/yarn/lib/cli.js:140748:22)
+      at Request.emit (events.js:189:13)
+      at Request.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141720:10)
+      at Request.emit (events.js:189:13)
+      at IncomingMessage.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141642:12)
+      at Object.onceWrapper (events.js:277:13)
+      at IncomingMessage.emit (events.js:194:15)
+      at endReadableNT (_stream_readable.js:1125:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "@geekagency/react-forms",
+    "version": "1.0.0",
+    "description": "Hooks for handling forms in react",
+    "main": "index.js",
+    "scripts": {
+      "build": "rm -rf ./lib; node_modules/@babel/cli/bin/babel.js --out-dir lib ./src && node lib/index.js && cp package.json ./lib",
+      "build:raw": "rm -rf ./lib; cp -a ./src ./lib && node lib/index.js && cp package.json ./lib",
+      "pub": "cd ./lib;npm publish; cd ..",
+      "test": "npx jest --coverage && npx jest-coverage-badges"
+    },
+    "devDependencies": {
+      "@babel/cli": "^7.4.4",
+      "@babel/core": "^7.4.5",
+      "@babel/node": "^7.5.0",
+      "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+      "@babel/preset-env": "^7.4.5",
+      "babel-eslint": "^10.0.2",
+      "babel-jest": "^24.8.0",
+      "babel-plugin-lodash": "^3.3.4",
+      "babel-preset-minify": "^0.5.0",
+      "eslint": "^5.16.0",
+      "jest": "^24.8.0",
+      "jest-coverage-badges": "^1.1.2",
+      "redux-mock-store": "^1.5.3"
+    },
+    "author": "",
+    "license": "MIT",
+    "jest": {
+      "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+      "testFileExtensions": [
+        "es6",
+        "js"
+      ],
+      "moduleFileExtensions": [
+        "js",
+        "es6"
+      ],
+      "coverageReporters": [
+        "json-summary",
+        "text",
+        "lcov"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
