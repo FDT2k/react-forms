@@ -4,14 +4,15 @@
   "description": "Hooks for handling forms in react",
   "main": "cjs/index.js",
   "scripts": {
-    "build": "rm -rf ./lib; node_modules/@babel/cli/bin/babel.js --out-dir lib ./src && node lib/index.js && cp package.json ./lib",
-    "build:raw": "rm -rf ./lib; cp -a ./src ./lib && node lib/index.js && cp package.json ./lib",
-    "pub": "cd ./lib;npm publish; cd ..",
+    "pub": "npm run publish:react; npm run publish:preact",
+
     "pack:preact": "copyfiles -f src/{useFieldValidator,useFieldValues,useForm}.js  dist/preact/; copyfiles -f src/preact/*  dist/preact/;",
     "pack:react": "copyfiles -f src/{useFieldValidator,useFieldValues,useForm,react-deps}.js  dist/react/; copyfiles -f ./package.json  dist/react/;",
     "bundle:preact":"npx rollup -e react,preact,preact/hooks -f cjs --exports named --preserveModules -d dist/preact/cjs dist/preact/*.js",
     "bundle:react":"npx rollup -e react,preact,preact/hooks -f cjs --exports named --preserveModules -d dist/react/cjs dist/react/*.js",
-    "prepublish": "npm run pack:react && npm run pack:preact && npm run bundle:preact && npm run bundle:react",
+    "build": "npm run pack:react && npm run pack:preact && npm run bundle:preact && npm run bundle:react",
+    "publish:preact":"cd dist/preact; npm publish",
+    "publish:react":"cd dist/react; npm publish",
     "test": "npx jest --coverage && npx jest-coverage-badges"
   },
   "devDependencies": {
